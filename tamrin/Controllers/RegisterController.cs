@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using tamrin.DbContex;
 using tamrin.DTOs;
 using tamrin.Entity;
+using tamrin.Security;
 
 namespace tamrin.Controllers
 {
@@ -27,17 +27,18 @@ namespace tamrin.Controllers
         #region Register Action
 
         [HttpPost , ValidateAntiForgeryToken]
-        public ActionResult Registering(UserRegisterDTO userDTO)
+        public IActionResult Register(UserRegisterDTO userDTO)
         {
             if(ModelState.IsValid)
             {
+                if(_contex.Users.Any(p=>p.PhoneNumber==userDTO.PhoneNumber)==false) { }
                 //Object Maping
                 User user = new User()
                 {
                     Name = userDTO.Name,
                     Email = userDTO.Email,
                     PhoneNumber = userDTO.PhoneNumber,
-                    Password = userDTO.Password,
+                    Password = PassworHelper.EncodePasswordMd5(userDTO.Password)
                 };
 
                 //Add User To Data Base
@@ -47,7 +48,7 @@ namespace tamrin.Controllers
                 return RedirectToAction("Index","Home");
             }
             //else go Register View
-            return View();
+            return View(RegisterView);
         }
         #endregion
 
