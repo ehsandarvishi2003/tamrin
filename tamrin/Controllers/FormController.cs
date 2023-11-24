@@ -19,11 +19,13 @@ namespace tamrin.Controllers
         }
 
         #region Form
-        [HttpGet]
+        [HttpPost]
         public ActionResult CarInfo(Entity.CarInfo model) 
         {
             _contex.CarInfos.Add(model);
-            return View();
+            _contex.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
 
             //return RedirectToAction("Index");
         }

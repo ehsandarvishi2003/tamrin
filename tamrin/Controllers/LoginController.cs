@@ -23,10 +23,10 @@ namespace tamrin.Controllers
         #endregion
 
         #region LoginAction
-        [HttpPost]
+        [HttpPost , ValidateAntiForgeryToken]
         public ActionResult Login()
         {
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
         #endregion
     }

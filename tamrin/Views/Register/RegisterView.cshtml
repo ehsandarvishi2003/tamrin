@@ -1,30 +1,33 @@
-﻿<h1>Register form</h1>
+﻿@model tamrin.DTOs.UserRegisterDTO;
 
-<form asp-action="Registerr" , asp-controller="Register" method="post">
+<h1>Register form</h1>
+
+<form asp-action="Registering" , asp-controller="Register" method="post">
 
     <div class="form-group mb-3">
-        <label class="mb-1" for="emaill">Name:</label>
-        <input name="Name" type="text" class="form-control">
+        <label class="mb-1" for="emaill" asp-for="Name"></label>
+        <input asp-for="Name" type="text" class="form-control">
     </div>
 
     <div class="form-group mb-3">
         <label class="mb-1" for="pwd">Email:</label>
-        <input name="Email" type="text" class="form-control">
+        <input asp-for="Email" type="text" class="form-control">
     </div>
 
     <div class="form-group mb-3">
         <label class="mb-1" for="pwd">Phone Number:</label>
-        <input name ="PhoneNumber" type="text" class="form-control">
+        <input asp-for="PhoneNumber" type="text" class="form-control">
     </div>
 
     <div class="form-group mb-3">
         <label class="mb-1" for="pwd">Password:</label>
-        <input name="Password" type="text" class="form-control">
+        <input asp-for="Password" type="text" class="form-control">
     </div>
 
     <div class="form-group mb-3">
         <label class="mb-1" for="pwd">Repeat password:</label>
-        <input name="RepeatPassword" type="text" class="form-control">
+        <input asp-for="RepeatPassword" type="text" class="form-control">
+        <span style="color:red;" asp-validation-for="RepeatPassword"></span>
     </div>
 
     <input type="submit" value="Register!" class="btn btn-success" />
