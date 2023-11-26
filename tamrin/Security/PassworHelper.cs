@@ -3,7 +3,7 @@ using System.Text;
 
 namespace tamrin.Security
 {
-    public class PassworHelper
+    public class PasswordHelper
     {
         public static string EncodePasswordMd5(string pass)
         {

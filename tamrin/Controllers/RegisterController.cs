@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using tamrin.DbContex;
 using tamrin.DTOs;
 using tamrin.Entity;
@@ -18,6 +19,7 @@ namespace tamrin.Controllers
         #endregion
 
         #region RegisterView
+        [HttpGet]
         public IActionResult RegisterView()
         {
             return View();
@@ -31,7 +33,7 @@ namespace tamrin.Controllers
         {
             if(ModelState.IsValid)
             {
-                if(_contex.Users.Any(p=>p.PhoneNumber==userDTO.PhoneNumber)==false)
+                if (_contex.Users.Any(p => p.PhoneNumber == userDTO.PhoneNumber) == false)
                 {
                     //Object Maping
                     User user = new User()
@@ -39,7 +41,7 @@ namespace tamrin.Controllers
                         Name = userDTO.Name,
                         Email = userDTO.Email,
                         PhoneNumber = userDTO.PhoneNumber,
-                        Password = PassworHelper.EncodePasswordMd5(userDTO.Password)
+                        Password = PasswordHelper.EncodePasswordMd5(userDTO.Password)
                     };
 
                     //Add User To Data Base
@@ -50,7 +52,7 @@ namespace tamrin.Controllers
                 }
             }
             //else go Register View
-            return RedirectToAction("Register", "Register");
+            return RedirectToAction("RegisterView", "Register");
         }
         #endregion
 
