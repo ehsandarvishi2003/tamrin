@@ -4,42 +4,39 @@
 {
     foreach(var userProfile in Model)
     {
-        <div class="card text-bg-light mb-3 col-md-12">
-    <div class="card-header">اطلاعات کاربری : @userProfile.UserName</div>
-    <div class="card-body">
-        <h5 class="card-title">Light card title</h5>
-        <div class="row">
+        <div class="card bg-light bg-primary  mb-3 col-md-12">
+            <div class="card-header">اطلاعات کاربری : @userProfile.UserName</div>
+            <div class="card-body">
 
-            <div class="col-md-4">
+                <div class="row">
 
-                <div class="card" style="width: 18rem;">
-                    <img src="/@userProfile.UserAvatar" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">@userProfile.UserName</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="col-md-4">
+
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="/@userProfile.UserAvatar" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@userProfile.UserName</h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">BirthDay :@userProfile.Birthday  </li>
+                                <li class="list-group-item">Age : @userProfile.Age</li>
+                                <li class="list-group-item">Education level :@userProfile.EducationLevel </li>
+                            </ul>
+                        </div>
+
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Birthday : @userProfile.Birthday</li>
-                        <li class="list-group-item">Age : @userProfile.Age</li>
-                        <li class="list-group-item">Education level : @userProfile.EducationLevel</li>
-                    </ul>
-                </div>
 
-            </div>
+                    <div class="col-md-8">
 
-            <div class="col-md-8">
+                        <div class="card mb-3">
+                            <img class="card-img-top" src="/@userProfile.UserStory" alt="Card image cap">
 
-                <div class="card mb-3">
-                    <img src="..." class="/@userProfile.UserStory" alt="Card imagr cap">
-                    <div class="card-body">
+                        </div>
+
                     </div>
+
                 </div>
-
             </div>
-
-
-        </div>
-    </div>
         </div>
     }
 }

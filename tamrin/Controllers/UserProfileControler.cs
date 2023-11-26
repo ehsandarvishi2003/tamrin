@@ -7,11 +7,11 @@ namespace tamrin.Controllers
     {
         public IActionResult ShowUserProfile()
         {
-            List<UserProfileDTO> pageModel = new();
+            List<UserProfileDTO> pageModel = new List<UserProfileDTO>();
 
             #region Object Maping 1
 
-            UserProfileDTO ehsanDarvishi = new()
+            UserProfileDTO ehsanDarvishi = new UserProfileDTO()
             {
                 Age = 21,
                 Birthday = "2003/12/4",
@@ -27,7 +27,7 @@ namespace tamrin.Controllers
 
             #region Object Maping 2
 
-            UserProfileDTO AliAkbary = new()
+            UserProfileDTO AliAkbary = new UserProfileDTO()
             {
                 Age = 20,
                 Birthday = "2004/12/4",
