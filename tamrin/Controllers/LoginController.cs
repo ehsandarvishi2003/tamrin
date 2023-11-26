@@ -40,7 +40,7 @@ namespace tamrin.Controllers
                 #region Find User From Data Base 
 
                 var user = _contex.Users
-                                    .FirstOrDefault(p => p.PhoneNumber == model.PhoneNumber
+                                    .FirstOrDefault(p => p.PhoneNumber == model.PhoneNumber.Trim()
                                                     &&
                                                     p.Password == PasswordHelper.EncodePasswordMd5(model.Password));
 

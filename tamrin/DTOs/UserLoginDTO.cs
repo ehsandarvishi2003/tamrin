@@ -4,7 +4,7 @@ namespace tamrin.DTOs
 {
     public class UserLoginDTO
     {
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [DataType(DataType.Password)]
         public string Password { get; set; }

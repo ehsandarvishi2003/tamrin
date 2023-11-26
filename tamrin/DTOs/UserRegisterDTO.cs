@@ -10,7 +10,7 @@ namespace tamrin.DTOs
         [Display(Name ="Name")] // this Used for label of Name Input in RegisterView
         public string Name { get; set; }
         public string Email { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [DataType(DataType.Password)]
         public string Password { get; set; }
