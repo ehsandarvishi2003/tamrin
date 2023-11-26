@@ -31,24 +31,26 @@ namespace tamrin.Controllers
         {
             if(ModelState.IsValid)
             {
-                if(_contex.Users.Any(p=>p.PhoneNumber==userDTO.PhoneNumber)==false) { }
-                //Object Maping
-                User user = new User()
+                if(_contex.Users.Any(p=>p.PhoneNumber==userDTO.PhoneNumber)==false)
                 {
-                    Name = userDTO.Name,
-                    Email = userDTO.Email,
-                    PhoneNumber = userDTO.PhoneNumber,
-                    Password = PassworHelper.EncodePasswordMd5(userDTO.Password)
-                };
+                    //Object Maping
+                    User user = new User()
+                    {
+                        Name = userDTO.Name,
+                        Email = userDTO.Email,
+                        PhoneNumber = userDTO.PhoneNumber,
+                        Password = PassworHelper.EncodePasswordMd5(userDTO.Password)
+                    };
 
-                //Add User To Data Base
-                _contex.Users.Add(user);
-                _contex.SaveChanges();
-                //After add go Home View
-                return RedirectToAction("Index","Home");
+                    //Add User To Data Base
+                    _contex.Users.Add(user);
+                    _contex.SaveChanges();
+                    //After add go Home View
+                    return RedirectToAction("Index", "Home");
+                }
             }
             //else go Register View
-            return View(RegisterView);
+            return RedirectToAction("Register", "Register");
         }
         #endregion
 
